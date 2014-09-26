@@ -50,6 +50,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
+        // Creates the text inside the table view
         cell.textLabel?.text = taskMGR.tasks[indexPath.row].name
         cell.detailTextLabel?.text = taskMGR.tasks[indexPath.row].desc
 
