@@ -30,6 +30,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tblTasks.reloadData()
     }
     
+    // UITableViewDelegate (Meaning this function is available through our UITableViewDelegate)
+    // Provides us with the delete functionality on our table
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+        
+        if (editingStyle == UITableViewCellEditingStyle.Delete){
+            // Remove the item from our taskMGR struct
+            taskMGR.tasks.removeAtIndex(indexPath.row)
+            // Then reload the data
+            tblTasks.reloadData()
+        }
+        
+    }
+    
     // UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskMGR.tasks.count
